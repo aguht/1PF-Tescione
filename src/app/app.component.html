@@ -1,2 +1,7 @@
+<body>
 <app-navbar></app-navbar>
-<div><app-sidebar></app-sidebar></div>
+<app-sidebar [ref1]="dataSubmitted"></app-sidebar>
+<button *ngIf="dataSubmitted" (click)="onClickAdd()">Add Vendedor</button>
+<app-lista [alumnos]="data" *ngIf="dataSubmitted" (alumnosUpdated)="onUpdateDeleteAlumnos($event)"></app-lista>
+<app-formulario (itemAdded)="onItemAdd($event)" *ngIf="!dataSubmitted"></app-formulario>
+</body>

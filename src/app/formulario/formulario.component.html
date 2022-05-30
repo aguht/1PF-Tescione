@@ -1,1 +1,29 @@
-<p>formulario works!</p>
+<div class="formm">
+<form [formGroup]="alumnoForm" (ngSubmit)="onSubmit()">
+    <div>
+        <mat-form-field appearance="fill">
+            <mat-label>Nombre</mat-label>
+            <input formControlName="nombreAlumno" matInput>
+        </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Apellido</mat-label>
+        <input formControlName="apellidoAlumno" matInput>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>DNI</mat-label>
+        <input formControlName="dniAlumno" matInput>
+      </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Curso</mat-label>
+          <input formControlName="cursoAlumno" matInput>
+        </mat-form-field>
+      </div>
+      <button type="submit">Submit</button>
+</form>
+</div>
