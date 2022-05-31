@@ -2,6 +2,6 @@
 <app-navbar></app-navbar>
 <app-sidebar [ref1]="dataSubmitted"></app-sidebar>
 <button *ngIf="dataSubmitted" (click)="onClickAdd()">Add Vendedor</button>
-<app-lista [alumnos]="data" *ngIf="dataSubmitted" (alumnosUpdated)="onUpdateDeleteAlumnos($event)"></app-lista>
-<app-formulario (itemAdded)="onItemAdd($event)" *ngIf="!dataSubmitted"></app-formulario>
+<app-lista [alumnos]="data" *ngIf="dataSubmitted" (vendedorToEdit)="onPassEdit($event)" (alumnosUpdated)="onUpdateDeleteAlumnos($event)"></app-lista>
+<app-formulario (itemAdded)="onItemAdd($event)" *ngIf="!dataSubmitted" [alumnoToEdit]="alumnoToEdit" (itemEdited)="onItemEdit($event)"></app-formulario>
 </body>

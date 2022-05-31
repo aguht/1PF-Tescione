@@ -2,17 +2,20 @@
 
     <ng-container matColumnDef="estudiante">
       <th mat-header-cell *matHeaderCellDef appTitulos> Estudiante </th>
-      <td mat-cell *matCellDef="let element"> {{ nombreApellido | union: element.nombreAlumno : element.apellidoAlumno }} </td> 
+      <td mat-cell *matCellDef="let element" (click)="onClickRow(element)">
+      {{ nombreApellido | union: element.nombreAlumno : element.apellidoAlumno }} </td> 
     </ng-container>
 
     <ng-container matColumnDef="dni">
       <th mat-header-cell *matHeaderCellDef appTitulos> DNI </th>
-      <td mat-cell *matCellDef="let element"> {{element.dniAlumno}} </td>
+      <td mat-cell *matCellDef="let element" (click)="onClickRow(element)">
+      {{element.dniAlumno}} </td>
     </ng-container>
     
     <ng-container matColumnDef="curso">
       <th mat-header-cell *matHeaderCellDef appTitulos> Curso </th>
-      <td mat-cell *matCellDef="let element"> {{element.cursoAlumno}} </td>
+      <td mat-cell *matCellDef="let element" (click)="onClickRow(element)">
+      {{element.cursoAlumno}} </td>
     </ng-container>
 
     <ng-container matColumnDef="delete">

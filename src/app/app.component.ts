@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Alumno } from './lista/alumno.interface';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +11,7 @@ export class AppComponent {
 
   data:any=[]; //propiedad que le pasaremos a la lista para llenar la tabla
   dataSubmitted=false; //booleano que usaremos con el ngIf para hacer toggle entre form y lista
+  alumnoToEdit:Alumno|null;
 
   onItemAdd(e:any){
     /* En este metodo se hace un update de la data que además que se modifica el id manualmente por el front */
@@ -25,9 +27,24 @@ export class AppComponent {
     this.dataSubmitted=true;
   }
 
+  onItemEdit(e:any){
+    /*Una vez editado, se busca en la data que se le pasa a la tabla, cual es el elemento editado
+    Y le cambia el valor*/
+    let index=this.data.findIndex((x:Alumno)=>x.id===e.id);
+    this.data[index]=e;
+    this.dataSubmitted=true;
+  }
+
+  onPassEdit(e:any){
+    /*Le asigna a vendedorToEdit el valor del objeto a editar y pasa al formulario*/
+    this.dataSubmitted=false;
+    this.alumnoToEdit=e;
+  }
+
   onClickAdd(){
     /*Pasa al formulario y además hace el valor a editar como null*/
     this.dataSubmitted=false;
+    this.alumnoToEdit=null;
   }
 
   onUpdateDeleteAlumnos(el:any){
